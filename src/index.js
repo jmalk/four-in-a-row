@@ -37,9 +37,16 @@ class Board extends React.Component {
     };
   }
 
-  handleClick (i) {
+  handleClick (column) {
     let boardSnapshot = this.state.board.map((element) => element.slice());
-    boardSnapshot[i][0] = this.state.redPlayersTurn ? 'red' : 'blue';
+
+    for (let i = 0; i < boardSnapshot[column].length; i++ ) {
+      if (boardSnapshot[column][i] === null) {
+        boardSnapshot[column][i] = this.state.redPlayersTurn ? 'red' : 'blue';
+        break;
+      }
+    }
+
     this.setState({
       board: boardSnapshot,
       redPlayersTurn: !this.state.redPlayersTurn
