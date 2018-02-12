@@ -14,40 +14,49 @@ function Square (props) {
   );
 }
 
-class Column extends React.Component {
+function Column (props) {
+  return (
+    <div className="column" onClick={props.onClick}>
+      <Square colorClass={props.squares[5]}/>
+      <Square colorClass={props.squares[4]}/>
+      <Square colorClass={props.squares[3]}/>
+      <Square colorClass={props.squares[2]}/>
+      <Square colorClass={props.squares[1]}/>
+      <Square colorClass={props.squares[0]}/>
+    </div>
+  );
+}
+
+class Board extends React.Component {
   constructor (props) {
     super(props);
+    // Represent board as a nested array of 7 columns of 6 spaces each.
     this.state = {
-        squares: Array(6).fill(null)
-    }
+      board: Array(7).fill(Array(6).fill(null))
+    };
+  }
+
+  handleClick (i) {
+    let boardSnapshot = this.state.board.map((element) => element.slice());
+    boardSnapshot[i][0] = 'red';
+    this.setState({
+      board: boardSnapshot
+    });
   }
 
   render () {
     return (
-      <div className="column" onClick={() => this.setState({squares: ['red', null, null, null, null, null]})}>
-        <Square colorClass={this.state.squares[5]}/>
-        <Square colorClass={this.state.squares[4]}/>
-        <Square colorClass={this.state.squares[3]}/>
-        <Square colorClass={this.state.squares[2]}/>
-        <Square colorClass={this.state.squares[1]}/>
-        <Square colorClass={this.state.squares[0]}/>
+      <div className="board">
+        <Column squares={this.state.board[0]} onClick={() => {this.handleClick(0)}}/>
+        <Column squares={this.state.board[1]} onClick={() => {this.handleClick(1)}}/>
+        <Column squares={this.state.board[2]} onClick={() => {this.handleClick(2)}}/>
+        <Column squares={this.state.board[3]} onClick={() => {this.handleClick(3)}}/>
+        <Column squares={this.state.board[4]} onClick={() => {this.handleClick(4)}}/>
+        <Column squares={this.state.board[5]} onClick={() => {this.handleClick(5)}}/>
+        <Column squares={this.state.board[6]} onClick={() => {this.handleClick(6)}}/>
       </div>
-    );
+    )
   }
-}
-
-function Board (props) {
-  return (
-    <div className="board">
-      <Column />
-      <Column />
-      <Column />
-      <Column />
-      <Column />
-      <Column />
-      <Column />
-    </div>
-  )
 }
 
 // ========================================
