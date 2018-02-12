@@ -32,15 +32,17 @@ class Board extends React.Component {
     super(props);
     // Represent board as a nested array of 7 columns of 6 spaces each.
     this.state = {
-      board: Array(7).fill(Array(6).fill(null))
+      board: Array(7).fill(Array(6).fill(null)),
+      redPlayersTurn: true
     };
   }
 
   handleClick (i) {
     let boardSnapshot = this.state.board.map((element) => element.slice());
-    boardSnapshot[i][0] = 'red';
+    boardSnapshot[i][0] = this.state.redPlayersTurn ? 'red' : 'blue';
     this.setState({
-      board: boardSnapshot
+      board: boardSnapshot,
+      redPlayersTurn: !this.state.redPlayersTurn
     });
   }
 

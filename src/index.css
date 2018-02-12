@@ -16,6 +16,10 @@ body {
   background: #f00;
 }
 
+.square.blue {
+  background: #00f;
+}
+
 .column {
   display: inline-block;
 }
