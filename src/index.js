@@ -13,9 +13,22 @@ function Square (props) {
   );
 }
 
+function Column (props) {
+  return (
+    <div className="column">
+      <Square />
+      <Square />
+      <Square />
+      <Square />
+      <Square />
+      <Square />
+    </div>
+  )
+}
+
 // ========================================
 
 ReactDOM.render(
-  <Square />,
+  <Column />,
   document.getElementById('root')
 );
