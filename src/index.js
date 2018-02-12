@@ -38,6 +38,7 @@ class Board extends React.Component {
   }
 
   handleClick (column) {
+    // Make a copy of the array
     let boardSnapshot = this.state.board.map((element) => element.slice());
 
     for (let i = 0; i < boardSnapshot[column].length; i++ ) {
@@ -47,6 +48,7 @@ class Board extends React.Component {
       }
     }
 
+    // TODO: There's a bug here where if you click on a full column, the turn still toggles.
     this.setState({
       board: boardSnapshot,
       redPlayersTurn: !this.state.redPlayersTurn
