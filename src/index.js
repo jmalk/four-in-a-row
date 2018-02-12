@@ -9,21 +9,30 @@ import './index.css';
 
 function Square (props) {
   return (
-    <div className="square"></div>
+    <div className={`square ${props.colorClass || ''}`}></div>
   );
 }
 
-function Column (props) {
-  return (
-    <div className="column">
-      <Square />
-      <Square />
-      <Square />
-      <Square />
-      <Square />
-      <Square />
-    </div>
-  )
+class Column extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+        squares: Array(6).fill(null)
+    }
+  }
+
+  render () {
+    return (
+      <div className="column" onClick={() => this.setState({squares: ['red', null, null, null, null, null]})}>
+        <Square colorClass={this.state.squares[5]}/>
+        <Square colorClass={this.state.squares[4]}/>
+        <Square colorClass={this.state.squares[3]}/>
+        <Square colorClass={this.state.squares[2]}/>
+        <Square colorClass={this.state.squares[1]}/>
+        <Square colorClass={this.state.squares[0]}/>
+      </div>
+    );
+  }
 }
 
 function Board (props) {

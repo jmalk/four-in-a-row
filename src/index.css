@@ -12,6 +12,10 @@ body {
   width: 34px;
 }
 
+.square.red {
+  background: #f00;
+}
+
 .column {
   display: inline-block;
 }
