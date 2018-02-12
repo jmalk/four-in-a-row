@@ -6,10 +6,10 @@ body {
 .square {
   background: #fff;
   border: 1px solid #999;
-  height: 34px;
+  height: 68px;
   margin-right: -1px;
   margin-top: -1px;
-  width: 34px;
+  width: 68px;
 }
 
 .square.red {
