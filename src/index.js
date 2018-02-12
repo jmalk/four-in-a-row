@@ -26,9 +26,23 @@ function Column (props) {
   )
 }
 
+function Board (props) {
+  return (
+    <div className="board">
+      <Column />
+      <Column />
+      <Column />
+      <Column />
+      <Column />
+      <Column />
+      <Column />
+    </div>
+  )
+}
+
 // ========================================
 
 ReactDOM.render(
-  <Column />,
+  <Board />,
   document.getElementById('root')
 );

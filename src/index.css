@@ -11,3 +11,7 @@ body {
   margin-top: -1px;
   width: 34px;
 }
+
+.column {
+  display: inline-block;
+}
