@@ -63,6 +63,7 @@ class Board extends React.Component {
         <Column squares={this.state.board[4]} onClick={() => {this.handleClick(4)}}/>
         <Column squares={this.state.board[5]} onClick={() => {this.handleClick(5)}}/>
         <Column squares={this.state.board[6]} onClick={() => {this.handleClick(6)}}/>
+        <p>{this.state.redPlayersTurn ? 'Red' : 'Blue'}'s turn</p>
       </div>
     )
   }
