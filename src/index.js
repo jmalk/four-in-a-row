@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import checkForWinner from './check-for-winner';
 import './index.css';
 
 // Square
@@ -47,6 +48,8 @@ class Board extends React.Component {
         break;
       }
     }
+
+    const winner = checkForWinner(boardSnapshot);
 
     // TODO: There's a bug here where if you click on a full column, the turn still toggles.
     this.setState({
