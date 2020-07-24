@@ -7,7 +7,7 @@ test('should return false for an empty board', () => {
 });
 
 const onePiece = [
-  ["red", null, null, null, null, null],
+  [1, null, null, null, null, null],
   [null, null, null, null, null, null],
   [null, null, null, null, null, null],
   [null, null, null, null, null, null],
@@ -21,7 +21,7 @@ test('should return false for one piece', () => {
 });
 
 const fourRedInAColumn = [
-  ["red", "red", "red", "red", null, null],
+  [1, 1, 1, 1, null, null],
   [null, null, null, null, null, null],
   [null, null, null, null, null, null],
   [null, null, null, null, null, null],
@@ -37,7 +37,7 @@ test('should return true for four red in one column', () => {
 const fourBlueInAColumn = [
   [null, null, null, null, null, null],
   [null, null, null, null, null, null],
-  ["blue", "blue", "blue", "blue", null, null],
+  [-1, -1, -1, -1, null, null],
   [null, null, null, null, null, null],
   [null, null, null, null, null, null],
   [null, null, null, null, null, null],
@@ -51,7 +51,7 @@ test('should return true for four blue in one column', () => {
 const fourBlueInAColumnFurtherUp = [
   [null, null, null, null, null, null],
   [null, null, null, null, null, null],
-  ["red", "red", "blue", "blue", "blue", "blue"],
+  [1, 1, -1, -1, -1, -1],
   [null, null, null, null, null, null],
   [null, null, null, null, null, null],
   [null, null, null, null, null, null],

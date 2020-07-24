@@ -47,7 +47,7 @@ class Board extends React.Component {
 
     for (let i = 0; i < boardSnapshot[columnIndex].length; i++ ) {
       if (boardSnapshot[columnIndex][i] === null) {
-        boardSnapshot[columnIndex][i] = this.state.redPlayersTurn ? 'red' : 'blue';
+        boardSnapshot[columnIndex][i] = this.state.redPlayersTurn ? 1 : -1;
         break;
       }
     }
