@@ -61,3 +61,17 @@ const fourBlueInAColumnFurtherUp = [
 test('should return true for four blue in one column even if not at the bottom', () => {
   expect(checkForWinner(fourBlueInAColumnFurtherUp)).toBe(true);
 });
+
+const fourRedInARow = [
+  [null, null, null, null, null, null],
+  [1, null, null, null, null, null],
+  [1, null, null, null, null, null],
+  [1, null, null, null, null, null],
+  [1, null, null, null, null, null],
+  [null, null, null, null, null, null],
+  [null, null, null, null, null, null],
+];
+
+test('should return true for four red in a row', () => {
+  expect(checkForWinner(fourRedInARow)).toBe(true);
+});
