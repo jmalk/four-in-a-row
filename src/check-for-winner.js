@@ -1,7 +1,4 @@
 export default function checkForWinner (boardSnapshot) {
-  let aRowHasFourMatching = false;
-  let aColumnHasFourMatching = false;
-
   for (let column = 0; column < boardSnapshot.length - 3; column++) {
     for (let row = 0; row < boardSnapshot[column].length - 3; row++) {
       const rowSum = (
@@ -11,9 +8,8 @@ export default function checkForWinner (boardSnapshot) {
         boardSnapshot[column + 3][row]
       );
 
-      if (rowSum === 4 || rowSum === -4) {
-        aRowHasFourMatching = true;
-      }
+      if (rowSum === 4) return "red";
+      if (rowSum === -4) return "blue";
 
       const columnSum = (
         boardSnapshot[column][row] +
@@ -22,13 +18,30 @@ export default function checkForWinner (boardSnapshot) {
         boardSnapshot[column][row + 3]
       );
 
-      if (columnSum === 4 || columnSum === -4) {
-        aColumnHasFourMatching = true;
-      }
+      if (columnSum === 4) return "red";
+      if (columnSum === -4) return "blue";
+
+      const diagonalSum = (
+        boardSnapshot[column][row] +
+        boardSnapshot[column + 1][row + 1] +
+        boardSnapshot[column + 2][row + 2] +
+        boardSnapshot[column + 3][row + 3]
+      );
+
+      if (diagonalSum === 4) return "red";
+      if (diagonalSum === -4) return "blue";
+
+      const reverseDiagonalSum = (
+        boardSnapshot[column + 3][row] +
+        boardSnapshot[column + 2][row + 1] +
+        boardSnapshot[column + 1][row + 2] +
+        boardSnapshot[column ][row + 3]
+      );
+
+      if (reverseDiagonalSum === 4) return "red";
+      if (reverseDiagonalSum === -4) return "blue";
     }
   }
 
-  const ret = aColumnHasFourMatching || aRowHasFourMatching;
-  // console.log("checkForWinner -> ret", ret)
-  return ret;
+  return false;
 }
