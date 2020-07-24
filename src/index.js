@@ -44,7 +44,8 @@ class Board extends React.Component {
     // Represent board as a nested array of 7 columns of 6 spaces each.
     this.state = {
       board: Array(7).fill(Array(6).fill(null)),
-      redPlayersTurn: true
+      redPlayersTurn: true,
+      winner: false
     };
   }
 
@@ -66,22 +67,25 @@ class Board extends React.Component {
 
     this.setState({
       board: boardSnapshot,
-      redPlayersTurn: !this.state.redPlayersTurn
+      redPlayersTurn: !this.state.redPlayersTurn,
+      winner
     });
   }
 
   render () {
     return (
-      <div className="board">
-        <Column squares={this.state.board[0]} onClick={() => {this.handleClick(0)}}/>
-        <Column squares={this.state.board[1]} onClick={() => {this.handleClick(1)}}/>
-        <Column squares={this.state.board[2]} onClick={() => {this.handleClick(2)}}/>
-        <Column squares={this.state.board[3]} onClick={() => {this.handleClick(3)}}/>
-        <Column squares={this.state.board[4]} onClick={() => {this.handleClick(4)}}/>
-        <Column squares={this.state.board[5]} onClick={() => {this.handleClick(5)}}/>
-        <Column squares={this.state.board[6]} onClick={() => {this.handleClick(6)}}/>
-        <p>{this.state.redPlayersTurn ? 'Red' : 'Blue'}'s turn</p>
-      </div>
+      this.state.winner
+      ? <h1>{this.state.winner} wins!</h1>
+      : <div className="board">
+          <Column squares={this.state.board[0]} onClick={() => {this.handleClick(0)}}/>
+          <Column squares={this.state.board[1]} onClick={() => {this.handleClick(1)}}/>
+          <Column squares={this.state.board[2]} onClick={() => {this.handleClick(2)}}/>
+          <Column squares={this.state.board[3]} onClick={() => {this.handleClick(3)}}/>
+          <Column squares={this.state.board[4]} onClick={() => {this.handleClick(4)}}/>
+          <Column squares={this.state.board[5]} onClick={() => {this.handleClick(5)}}/>
+          <Column squares={this.state.board[6]} onClick={() => {this.handleClick(6)}}/>
+          <p>{this.state.redPlayersTurn ? 'Red' : 'Blue'}'s turn</p>
+        </div>
     )
   }
 }
