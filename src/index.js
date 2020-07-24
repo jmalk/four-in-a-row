@@ -38,20 +38,22 @@ class Board extends React.Component {
     };
   }
 
-  handleClick (column) {
+  handleClick (columnIndex) {
     // Make a copy of the array
     let boardSnapshot = this.state.board.map((element) => element.slice());
+    const column = boardSnapshot[columnIndex];
+    const columnFull = !!column[column.length - 1];
+    if (columnFull) { return; }
 
-    for (let i = 0; i < boardSnapshot[column].length; i++ ) {
-      if (boardSnapshot[column][i] === null) {
-        boardSnapshot[column][i] = this.state.redPlayersTurn ? 'red' : 'blue';
+    for (let i = 0; i < boardSnapshot[columnIndex].length; i++ ) {
+      if (boardSnapshot[columnIndex][i] === null) {
+        boardSnapshot[columnIndex][i] = this.state.redPlayersTurn ? 'red' : 'blue';
         break;
       }
     }
 
     const winner = checkForWinner(boardSnapshot);
 
-    // TODO: There's a bug here where if you click on a full column, the turn still toggles.
     this.setState({
       board: boardSnapshot,
       redPlayersTurn: !this.state.redPlayersTurn
