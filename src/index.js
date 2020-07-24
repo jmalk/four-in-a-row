@@ -3,6 +3,16 @@ import ReactDOM from 'react-dom';
 import checkForWinner from './check-for-winner';
 import './index.css';
 
+function getColor (number) {
+  if (number === 1) {
+    return "red";
+  } else if (number === -1) {
+    return "blue";
+  } else {
+    return null;
+  }
+}
+
 // Square
 // Column
 // Board
@@ -18,12 +28,12 @@ function Square (props) {
 function Column (props) {
   return (
     <div className="column" onClick={props.onClick}>
-      <Square colorClass={props.squares[5]}/>
-      <Square colorClass={props.squares[4]}/>
-      <Square colorClass={props.squares[3]}/>
-      <Square colorClass={props.squares[2]}/>
-      <Square colorClass={props.squares[1]}/>
-      <Square colorClass={props.squares[0]}/>
+      <Square colorClass={getColor(props.squares[5])}/>
+      <Square colorClass={getColor(props.squares[4])}/>
+      <Square colorClass={getColor(props.squares[3])}/>
+      <Square colorClass={getColor(props.squares[2])}/>
+      <Square colorClass={getColor(props.squares[1])}/>
+      <Square colorClass={getColor(props.squares[0])}/>
     </div>
   );
 }
