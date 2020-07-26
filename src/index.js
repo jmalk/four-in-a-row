@@ -45,48 +45,15 @@ class Board extends React.Component {
       <h1>{this.state.winner} wins!</h1>
     ) : (
       <div className="board">
-        <Column
-          squares={this.state.board[0]}
+        {[0,1,2,3,4,5,6].map((i) => {
+          return <Column
+          squares={this.state.board[i]}
           onClick={() => {
-            this.handleClick(0);
+            this.handleClick(i);
           }}
         />
-        <Column
-          squares={this.state.board[1]}
-          onClick={() => {
-            this.handleClick(1);
-          }}
-        />
-        <Column
-          squares={this.state.board[2]}
-          onClick={() => {
-            this.handleClick(2);
-          }}
-        />
-        <Column
-          squares={this.state.board[3]}
-          onClick={() => {
-            this.handleClick(3);
-          }}
-        />
-        <Column
-          squares={this.state.board[4]}
-          onClick={() => {
-            this.handleClick(4);
-          }}
-        />
-        <Column
-          squares={this.state.board[5]}
-          onClick={() => {
-            this.handleClick(5);
-          }}
-        />
-        <Column
-          squares={this.state.board[6]}
-          onClick={() => {
-            this.handleClick(6);
-          }}
-        />
+        })}
+
         <h2 className="turn-label">
           {this.state.redPlayersTurn ? 'Red' : 'Blue'}'s turn
         </h2>
@@ -94,7 +61,5 @@ class Board extends React.Component {
     );
   }
 }
-
-// ========================================
 
 ReactDOM.render(<Board className="board" />, document.getElementById('root'));
