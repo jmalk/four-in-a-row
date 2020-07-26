@@ -1,15 +1,7 @@
 export default function checkForWinner(boardSnapshot) {
+  // Check all diagonals
   for (let column = 0; column < boardSnapshot.length - 3; column++) {
     for (let row = 0; row < boardSnapshot[column].length - 3; row++) {
-      const rowSum =
-        boardSnapshot[column][row] +
-        boardSnapshot[column + 1][row] +
-        boardSnapshot[column + 2][row] +
-        boardSnapshot[column + 3][row];
-
-      if (rowSum === 4) return 'red';
-      if (rowSum === -4) return 'blue';
-
       const diagonalSum =
         boardSnapshot[column][row] +
         boardSnapshot[column + 1][row + 1] +
@@ -41,6 +33,20 @@ export default function checkForWinner(boardSnapshot) {
 
     if (columnSum === 4) return 'red';
     if (columnSum === -4) return 'blue';
+    }
+  }
+
+  // Check all rows
+  for (let column = 0; column < boardSnapshot.length - 3; column++) {
+    for (let row = 0; row < boardSnapshot[column].length; row++) {
+      const rowSum =
+      boardSnapshot[column][row] +
+      boardSnapshot[column + 1][row] +
+      boardSnapshot[column + 2][row] +
+      boardSnapshot[column + 3][row];
+
+    if (rowSum === 4) return 'red';
+    if (rowSum === -4) return 'blue';
     }
   }
 
