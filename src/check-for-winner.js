@@ -10,15 +10,6 @@ export default function checkForWinner(boardSnapshot) {
       if (rowSum === 4) return 'red';
       if (rowSum === -4) return 'blue';
 
-      const columnSum =
-        boardSnapshot[column][row] +
-        boardSnapshot[column][row + 1] +
-        boardSnapshot[column][row + 2] +
-        boardSnapshot[column][row + 3];
-
-      if (columnSum === 4) return 'red';
-      if (columnSum === -4) return 'blue';
-
       const diagonalSum =
         boardSnapshot[column][row] +
         boardSnapshot[column + 1][row + 1] +
@@ -36,6 +27,20 @@ export default function checkForWinner(boardSnapshot) {
 
       if (reverseDiagonalSum === 4) return 'red';
       if (reverseDiagonalSum === -4) return 'blue';
+    }
+  }
+
+  // Check all columns
+  for (let column=0; column < boardSnapshot.length; column++) {
+    for (let row = 0; row < boardSnapshot[column].length - 3; row++) {
+      const columnSum =
+      boardSnapshot[column][row] +
+      boardSnapshot[column][row + 1] +
+      boardSnapshot[column][row + 2] +
+      boardSnapshot[column][row + 3];
+
+    if (columnSum === 4) return 'red';
+    if (columnSum === -4) return 'blue';
     }
   }
 
