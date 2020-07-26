@@ -23,16 +23,16 @@ export default function checkForWinner(boardSnapshot) {
   }
 
   // Check all columns
-  for (let column=0; column < boardSnapshot.length; column++) {
+  for (let column = 0; column < boardSnapshot.length; column++) {
     for (let row = 0; row < boardSnapshot[column].length - 3; row++) {
       const columnSum =
-      boardSnapshot[column][row] +
-      boardSnapshot[column][row + 1] +
-      boardSnapshot[column][row + 2] +
-      boardSnapshot[column][row + 3];
+        boardSnapshot[column][row] +
+        boardSnapshot[column][row + 1] +
+        boardSnapshot[column][row + 2] +
+        boardSnapshot[column][row + 3];
 
-    if (columnSum === 4) return 'red';
-    if (columnSum === -4) return 'blue';
+      if (columnSum === 4) return 'red';
+      if (columnSum === -4) return 'blue';
     }
   }
 
@@ -40,13 +40,13 @@ export default function checkForWinner(boardSnapshot) {
   for (let column = 0; column < boardSnapshot.length - 3; column++) {
     for (let row = 0; row < boardSnapshot[column].length; row++) {
       const rowSum =
-      boardSnapshot[column][row] +
-      boardSnapshot[column + 1][row] +
-      boardSnapshot[column + 2][row] +
-      boardSnapshot[column + 3][row];
+        boardSnapshot[column][row] +
+        boardSnapshot[column + 1][row] +
+        boardSnapshot[column + 2][row] +
+        boardSnapshot[column + 3][row];
 
-    if (rowSum === 4) return 'red';
-    if (rowSum === -4) return 'blue';
+      if (rowSum === 4) return 'red';
+      if (rowSum === -4) return 'blue';
     }
   }
 

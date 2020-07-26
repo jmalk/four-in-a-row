@@ -45,13 +45,15 @@ class Board extends React.Component {
       <h1>{this.state.winner} wins!</h1>
     ) : (
       <div className="board">
-        {[0,1,2,3,4,5,6].map((i) => {
-          return <Column
-          squares={this.state.board[i]}
-          onClick={() => {
-            this.handleClick(i);
-          }}
-        />
+        {[0, 1, 2, 3, 4, 5, 6].map((i) => {
+          return (
+            <Column
+              squares={this.state.board[i]}
+              onClick={() => {
+                this.handleClick(i);
+              }}
+            />
+          );
         })}
 
         <h2 className="turn-label">
