@@ -31,7 +31,7 @@ const fourRedInAColumn = [
 ];
 
 test('should return true for four red in one column', () => {
-  expect(checkForWinner(fourRedInAColumn)).toBe("red");
+  expect(checkForWinner(fourRedInAColumn)).toBe('red');
 });
 
 const fourBlueInAColumn = [
@@ -45,7 +45,7 @@ const fourBlueInAColumn = [
 ];
 
 test('should return true for four blue in one column', () => {
-  expect(checkForWinner(fourBlueInAColumn)).toBe("blue");
+  expect(checkForWinner(fourBlueInAColumn)).toBe('blue');
 });
 
 const fourBlueInAColumnFurtherUp = [
@@ -59,7 +59,7 @@ const fourBlueInAColumnFurtherUp = [
 ];
 
 test('should return true for four blue in one column even if not at the bottom', () => {
-  expect(checkForWinner(fourBlueInAColumnFurtherUp)).toBe("blue");
+  expect(checkForWinner(fourBlueInAColumnFurtherUp)).toBe('blue');
 });
 
 const fourRedInARow = [
@@ -73,5 +73,5 @@ const fourRedInARow = [
 ];
 
 test('should return true for four red in a row', () => {
-  expect(checkForWinner(fourRedInARow)).toBe("red");
+  expect(checkForWinner(fourRedInARow)).toBe('red');
 });
