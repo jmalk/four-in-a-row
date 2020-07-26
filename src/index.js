@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import checkForWinner from './check-for-winner';
+import Square from './components/Square';
 import './index.css';
 
 function getColor(number) {
@@ -11,16 +12,6 @@ function getColor(number) {
   } else {
     return null;
   }
-}
-
-// Square
-// Column
-// Board
-// Game
-
-function Square(props) {
-  // TODO: Make the merge of classNames nicer, see egghead.io course.
-  return <div className={`square ${props.colorClass || ''}`}></div>;
 }
 
 function Column(props) {
