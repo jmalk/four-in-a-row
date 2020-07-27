@@ -1,11 +1,11 @@
-import React from 'react';
-import Square from './Square';
+import React from "react";
+import Square from "./Square";
 
 function getColor(number) {
   if (number === 1) {
-    return 'red';
+    return "player-one";
   } else if (number === -1) {
-    return 'blue';
+    return "player-two";
   } else {
     return null;
   }

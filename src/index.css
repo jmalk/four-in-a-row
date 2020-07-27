@@ -22,11 +22,11 @@ body {
   border-radius: 34px;
 }
 
-.square.red {
+.square.player-one {
   background: #f00;
 }
 
-.square.blue {
+.square.player-two {
   background: #00f;
 }
 
