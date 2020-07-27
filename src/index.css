@@ -1,3 +1,8 @@
+:root {
+  --player-one-color: #f00;
+  --player-two-color: #00f;
+}
+
 body {
   font: 14px "Century Gothic", Futura, sans-serif;
   margin: 20px;
@@ -23,11 +28,11 @@ body {
 }
 
 .square.player-one {
-  background: #f00;
+  background: var(--player-one-color);
 }
 
 .square.player-two {
-  background: #00f;
+  background: var(--player-two-color);
 }
 
 .column {
