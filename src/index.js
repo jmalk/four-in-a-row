@@ -46,6 +46,7 @@ class Board extends React.Component {
     });
   }
 
+  // Don't reset colors so players get to keep their choices between games.
   resetGame() {
     this.setState({
       board: Array(7).fill(Array(6).fill(null)),
@@ -72,6 +73,7 @@ class Board extends React.Component {
     root.style.setProperty("--player-two-color", event.target.value);
   }
 
+  // TODO: Feels like there could be a better set of components to define this board.
   render() {
     return (
       <div className="board">
@@ -105,6 +107,7 @@ class Board extends React.Component {
           </h2>
         ) : null}
 
+        {/* TODO: Extract color pickers as components */}
         <div>
           <input
             type="color"
