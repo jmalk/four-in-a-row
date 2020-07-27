@@ -40,8 +40,9 @@ body {
   width: inherit;
   height: inherit;
   background-color: hsl(120, 0%, 100%, 90%);
-}
-.winner-announce {
   text-align: center;
+}
+
+.winner-announce {
   padding-top: 152px;
 }

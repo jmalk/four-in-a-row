@@ -1,8 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import checkForWinner from './check-for-winner';
-import Column from './components/Column';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import checkForWinner from "./check-for-winner";
+import Column from "./components/Column";
+import "./index.css";
 
 class Board extends React.Component {
   constructor(props) {
@@ -13,6 +13,8 @@ class Board extends React.Component {
       playerOnesTurn: true,
       winner: false,
     };
+
+    this.resetGame = this.resetGame.bind(this);
   }
 
   handleClick(columnIndex) {
@@ -40,18 +42,27 @@ class Board extends React.Component {
     });
   }
 
+  resetGame() {
+    this.setState({
+      board: Array(7).fill(Array(6).fill(null)),
+      playerOnesTurn: true,
+      winner: false,
+    });
+  }
+
   render() {
     return (
       <div className="board">
         {this.state.winner ? (
-          <div className="winner-announce-background">
+          <div className="winner-announce-background" onClick={this.resetGame}>
             <h1 className="winner-announce">
-              {this.state.winner === 'playerOne'
-                ? 'Player one wins!'
-                : this.state.winner === 'playerTwo'
-                ? 'Player two wins!'
+              {this.state.winner === "playerOne"
+                ? "Player one wins!"
+                : this.state.winner === "playerTwo"
+                ? "Player two wins!"
                 : null}
             </h1>
+            <p>Click anywhere to play again</p>
           </div>
         ) : null}
         {[0, 1, 2, 3, 4, 5, 6].map((i) => {
@@ -68,7 +79,7 @@ class Board extends React.Component {
 
         {!this.state.winner ? (
           <h2 className="turn-label">
-            {this.state.playerOnesTurn ? 'Player one' : 'Player two'}'s turn
+            {this.state.playerOnesTurn ? "Player one" : "Player two"}'s turn
           </h2>
         ) : null}
       </div>
@@ -76,4 +87,4 @@ class Board extends React.Component {
   }
 }
 
-ReactDOM.render(<Board className="board" />, document.getElementById('root'));
+ReactDOM.render(<Board className="board" />, document.getElementById("root"));
