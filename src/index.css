@@ -38,7 +38,7 @@ body {
   position: absolute;
   width: inherit;
   height: inherit;
-  background-color: hsl(120, 0%, 50%, 95%);
+  background-color: hsl(120, 0%, 100%, 90%);
 }
 .winner-announce {
   text-align: center;
