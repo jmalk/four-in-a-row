@@ -10,7 +10,7 @@ class Board extends React.Component {
     // Represent board as a nested array of 7 columns of 6 spaces each.
     this.state = {
       board: Array(7).fill(Array(6).fill(null)),
-      redPlayersTurn: true,
+      playerOnesTurn: true,
       winner: false,
     };
   }
@@ -26,7 +26,7 @@ class Board extends React.Component {
 
     for (let i = 0; i < boardSnapshot[columnIndex].length; i++) {
       if (boardSnapshot[columnIndex][i] === null) {
-        boardSnapshot[columnIndex][i] = this.state.redPlayersTurn ? 1 : -1;
+        boardSnapshot[columnIndex][i] = this.state.playerOnesTurn ? 1 : -1;
         break;
       }
     }
@@ -35,7 +35,7 @@ class Board extends React.Component {
 
     this.setState({
       board: boardSnapshot,
-      redPlayersTurn: !this.state.redPlayersTurn,
+      playerOnesTurn: !this.state.playerOnesTurn,
       winner,
     });
   }
@@ -43,7 +43,7 @@ class Board extends React.Component {
   render() {
     return (
       <div className="board">
-        {this.state.winner ? <div className="winner-announce-background"><h1 className="winner-announce">{this.state.winner} wins!</h1></div> : null}
+        {this.state.winner ? <div className="winner-announce-background"><h1 className="winner-announce">{this.state.winner === 'playerOne' ? 'Player one wins!' : this.state.winner === 'playerTwo' ? 'Player two wins!' : null}</h1></div> : null}
         {[0, 1, 2, 3, 4, 5, 6].map((i) => {
           return (
             <Column
@@ -57,7 +57,7 @@ class Board extends React.Component {
           })}
 
         {!this.state.winner ? <h2 className="turn-label">
-          {this.state.redPlayersTurn ? 'Red' : 'Blue'}'s turn
+          {this.state.playerOnesTurn ? 'Player one' : 'Player two'}'s turn
         </h2> : null}
       </div>
     );

@@ -8,8 +8,8 @@ export default function checkForWinner(boardSnapshot) {
         boardSnapshot[column + 2][row + 2] +
         boardSnapshot[column + 3][row + 3];
 
-      if (diagonalSum === 4) return 'red';
-      if (diagonalSum === -4) return 'blue';
+      if (diagonalSum === 4) return 'playerOne';
+      if (diagonalSum === -4) return 'playerTwo';
 
       const reverseDiagonalSum =
         boardSnapshot[column + 3][row] +
@@ -17,8 +17,8 @@ export default function checkForWinner(boardSnapshot) {
         boardSnapshot[column + 1][row + 2] +
         boardSnapshot[column][row + 3];
 
-      if (reverseDiagonalSum === 4) return 'red';
-      if (reverseDiagonalSum === -4) return 'blue';
+      if (reverseDiagonalSum === 4) return 'playerOne';
+      if (reverseDiagonalSum === -4) return 'playerTwo';
     }
   }
 
@@ -31,8 +31,8 @@ export default function checkForWinner(boardSnapshot) {
         boardSnapshot[column][row + 2] +
         boardSnapshot[column][row + 3];
 
-      if (columnSum === 4) return 'red';
-      if (columnSum === -4) return 'blue';
+      if (columnSum === 4) return 'playerOne';
+      if (columnSum === -4) return 'playerTwo';
     }
   }
 
@@ -45,8 +45,8 @@ export default function checkForWinner(boardSnapshot) {
         boardSnapshot[column + 2][row] +
         boardSnapshot[column + 3][row];
 
-      if (rowSum === 4) return 'red';
-      if (rowSum === -4) return 'blue';
+      if (rowSum === 4) return 'playerOne';
+      if (rowSum === -4) return 'playerTwo';
     }
   }
 

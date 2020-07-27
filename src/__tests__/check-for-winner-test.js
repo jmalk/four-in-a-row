@@ -1,5 +1,8 @@
 import checkForWinner from '../check-for-winner';
 
+// playerOne: pieces represented by 1
+// playerTwo: pieces represented by -1
+
 const emptyBoard = Array(7).fill(Array(6).fill(null));
 
 test('should return false for an empty board', () => {
@@ -20,7 +23,7 @@ test('should return false for one piece', () => {
   expect(checkForWinner(onePiece)).toBe(false);
 });
 
-const fourRedInAColumn = [
+const fourPositiveInAColumn = [
   [1, 1, 1, 1, null, null],
   [null, null, null, null, null, null],
   [null, null, null, null, null, null],
@@ -30,11 +33,11 @@ const fourRedInAColumn = [
   [null, null, null, null, null, null],
 ];
 
-test('should return true for four red in one column', () => {
-  expect(checkForWinner(fourRedInAColumn)).toBe('red');
+test('should return playerOne for four positive in one column', () => {
+  expect(checkForWinner(fourPositiveInAColumn)).toBe('playerOne');
 });
 
-const fourBlueInAColumn = [
+const fourNegativeInAColumn = [
   [null, null, null, null, null, null],
   [null, null, null, null, null, null],
   [-1, -1, -1, -1, null, null],
@@ -44,11 +47,11 @@ const fourBlueInAColumn = [
   [null, null, null, null, null, null],
 ];
 
-test('should return true for four blue in one column', () => {
-  expect(checkForWinner(fourBlueInAColumn)).toBe('blue');
+test('should return playerTwo for four negative in one column', () => {
+  expect(checkForWinner(fourNegativeInAColumn)).toBe('playerTwo');
 });
 
-const fourBlueInAColumnFurtherUp = [
+const fourNegativeInAColumnFurtherUp = [
   [null, null, null, null, null, null],
   [null, null, null, null, null, null],
   [1, 1, -1, -1, -1, -1],
@@ -58,11 +61,11 @@ const fourBlueInAColumnFurtherUp = [
   [null, null, null, null, null, null],
 ];
 
-test('should return true for four blue in one column even if not at the bottom', () => {
-  expect(checkForWinner(fourBlueInAColumnFurtherUp)).toBe('blue');
+test('should return playerTwo for four negative in one column even if not at the bottom', () => {
+  expect(checkForWinner(fourNegativeInAColumnFurtherUp)).toBe('playerTwo');
 });
 
-const fourBlueInTheFurthestColumn = [
+const fourNegativeInTheFurthestColumn = [
   [null, null, null, null, null, null],
   [null, null, null, null, null, null],
   [null, null, null, null, null, null],
@@ -72,11 +75,11 @@ const fourBlueInTheFurthestColumn = [
   [-1, -1, -1, -1, null, null],
 ];
 
-test('should return true for four blue in furthest column', () => {
-  expect(checkForWinner(fourBlueInTheFurthestColumn)).toBe('blue');
+test('should return playerTwo for four negative in furthest column', () => {
+  expect(checkForWinner(fourNegativeInTheFurthestColumn)).toBe('playerTwo');
 });
 
-const fourRedInARow = [
+const fourPositiveInARow = [
   [null, null, null, null, null, null],
   [1, null, null, null, null, null],
   [1, null, null, null, null, null],
@@ -86,11 +89,11 @@ const fourRedInARow = [
   [null, null, null, null, null, null],
 ];
 
-test('should return true for four red in a row', () => {
-  expect(checkForWinner(fourRedInARow)).toBe('red');
+test('should return playerOne for four positive in a row', () => {
+  expect(checkForWinner(fourPositiveInARow)).toBe('playerOne');
 });
 
-const fourRedInFurthestRow = [
+const fourPositiveInFurthestRow = [
   [null, null, null, null, null, null],
   [null, null, null, null, null, null],
   [null, null, null, null, null, null],
@@ -100,6 +103,6 @@ const fourRedInFurthestRow = [
   [null, null, null, null, null, 1],
 ];
 
-test('should return true for four red in furthest row', () => {
-  expect(checkForWinner(fourRedInFurthestRow)).toBe('red');
+test('should return playerOne for four positive in furthest row', () => {
+  expect(checkForWinner(fourPositiveInFurthestRow)).toBe('playerOne');
 });
