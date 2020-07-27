@@ -6,7 +6,7 @@ body {
 .board {
   width: 546px;
   height: 520px;
-  margin: 0 auto;
+  margin: 48px auto;
 }
 
 .turn-label {
