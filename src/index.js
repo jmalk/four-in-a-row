@@ -12,9 +12,13 @@ class Board extends React.Component {
       board: Array(7).fill(Array(6).fill(null)),
       playerOnesTurn: true,
       winner: false,
+      playerOneColor: "#ff0000",
+      playerTwoColor: "#0000ff",
     };
 
     this.resetGame = this.resetGame.bind(this);
+    this.changePlayerOneColor = this.changePlayerOneColor.bind(this);
+    this.changePlayerTwoColor = this.changePlayerTwoColor.bind(this);
   }
 
   handleClick(columnIndex) {
@@ -50,6 +54,24 @@ class Board extends React.Component {
     });
   }
 
+  changePlayerOneColor(event) {
+    this.setState({
+      playerOneColor: event.target.value,
+    });
+
+    const root = document.querySelector(":root");
+    root.style.setProperty("--player-one-color", event.target.value);
+  }
+
+  changePlayerTwoColor(event) {
+    this.setState({
+      playerTwoColor: event.target.value,
+    });
+
+    const root = document.querySelector(":root");
+    root.style.setProperty("--player-two-color", event.target.value);
+  }
+
   render() {
     return (
       <div className="board">
@@ -82,6 +104,28 @@ class Board extends React.Component {
             {this.state.playerOnesTurn ? "Player one" : "Player two"}'s turn
           </h2>
         ) : null}
+
+        <div>
+          <input
+            type="color"
+            id="player-one-color-picker"
+            name="player-one-color-picker"
+            value={this.state.playerOneColor}
+            onChange={this.changePlayerOneColor}
+          ></input>
+          <label htmlFor="player-one-color-picker">Player One color</label>
+        </div>
+
+        <div>
+          <input
+            type="color"
+            id="player-two-color-picker"
+            name="player-two-color-picker"
+            value={this.state.playerTwoColor}
+            onChange={this.changePlayerTwoColor}
+          ></input>
+          <label htmlFor="player-two-color-picker">Player Two color</label>
+        </div>
       </div>
     );
   }
