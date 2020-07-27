@@ -7,9 +7,14 @@
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": [
-      "prettier --single-quote --write",
+      "prettier --write",
       "git add"
     ]
   },
