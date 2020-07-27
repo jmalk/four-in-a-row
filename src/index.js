@@ -48,6 +48,7 @@ class Board extends React.Component {
         {[0, 1, 2, 3, 4, 5, 6].map((i) => {
           return (
             <Column
+              key={i}
               squares={this.state.board[i]}
               onClick={() => {
                 this.handleClick(i);
