@@ -102,7 +102,11 @@ class Board extends React.Component {
         })}
 
         {!this.state.winner ? (
-          <h2 className="turn-label">
+          <h2
+            className={`turn-label${
+              this.state.playerOnesTurn ? " player-one" : " player-two"
+            }`}
+          >
             {this.state.playerOnesTurn ? "Player one" : "Player two"}'s turn
           </h2>
         ) : null}

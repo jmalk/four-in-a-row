@@ -18,6 +18,14 @@ body {
   text-align: center;
 }
 
+.turn-label.player-one {
+  color: var(--player-one-color);
+}
+
+.turn-label.player-two {
+  color: var(--player-two-color);
+}
+
 .square {
   background: #fff;
   border: 1px solid #999;
