@@ -77,6 +77,7 @@ class Board extends React.Component {
   render() {
     return (
       <div className="board">
+        {/* TODO: Have winner announcement fade in */}
         {this.state.winner ? (
           <div className="winner-announce-background" onClick={this.resetGame}>
             <h1 className="winner-announce">
