@@ -41,21 +41,20 @@ class Board extends React.Component {
   }
 
   render() {
-    return this.state.winner ? (
-      <h1>{this.state.winner} wins!</h1>
-    ) : (
+    return (
       <div className="board">
+        {this.state.winner ? <div className="winner-announce-background"><h1 className="winner-announce">{this.state.winner} wins!</h1></div> : null}
         {[0, 1, 2, 3, 4, 5, 6].map((i) => {
           return (
             <Column
-              key={i}
-              squares={this.state.board[i]}
-              onClick={() => {
-                this.handleClick(i);
-              }}
+            key={i}
+            squares={this.state.board[i]}
+            onClick={() => {
+              this.handleClick(i);
+            }}
             />
-          );
-        })}
+            );
+          })}
 
         <h2 className="turn-label">
           {this.state.redPlayersTurn ? 'Red' : 'Blue'}'s turn

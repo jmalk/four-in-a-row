@@ -5,6 +5,7 @@ body {
 
 .board {
   width: 546px;
+  height: 520px;
   margin: 0 auto;
 }
 
@@ -31,4 +32,15 @@ body {
 
 .column {
   display: inline-block;
+}
+
+.winner-announce-background {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  background-color: hsl(120, 0%, 50%, 95%);
+}
+.winner-announce {
+  text-align: center;
+  padding-top: 152px;
 }
