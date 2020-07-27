@@ -56,9 +56,9 @@ class Board extends React.Component {
             );
           })}
 
-        <h2 className="turn-label">
+        {!this.state.winner ? <h2 className="turn-label">
           {this.state.redPlayersTurn ? 'Red' : 'Blue'}'s turn
-        </h2>
+        </h2> : null}
       </div>
     );
   }
