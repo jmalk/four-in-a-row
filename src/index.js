@@ -43,22 +43,34 @@ class Board extends React.Component {
   render() {
     return (
       <div className="board">
-        {this.state.winner ? <div className="winner-announce-background"><h1 className="winner-announce">{this.state.winner === 'playerOne' ? 'Player one wins!' : this.state.winner === 'playerTwo' ? 'Player two wins!' : null}</h1></div> : null}
+        {this.state.winner ? (
+          <div className="winner-announce-background">
+            <h1 className="winner-announce">
+              {this.state.winner === 'playerOne'
+                ? 'Player one wins!'
+                : this.state.winner === 'playerTwo'
+                ? 'Player two wins!'
+                : null}
+            </h1>
+          </div>
+        ) : null}
         {[0, 1, 2, 3, 4, 5, 6].map((i) => {
           return (
             <Column
-            key={i}
-            squares={this.state.board[i]}
-            onClick={() => {
-              this.handleClick(i);
-            }}
+              key={i}
+              squares={this.state.board[i]}
+              onClick={() => {
+                this.handleClick(i);
+              }}
             />
-            );
-          })}
+          );
+        })}
 
-        {!this.state.winner ? <h2 className="turn-label">
-          {this.state.playerOnesTurn ? 'Player one' : 'Player two'}'s turn
-        </h2> : null}
+        {!this.state.winner ? (
+          <h2 className="turn-label">
+            {this.state.playerOnesTurn ? 'Player one' : 'Player two'}'s turn
+          </h2>
+        ) : null}
       </div>
     );
   }
