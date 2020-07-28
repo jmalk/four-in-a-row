@@ -12,16 +12,15 @@ function getColor(number) {
   }
 }
 
-// TODO Destructure props.
-function Column(props) {
+function Column({ onClick, squares }) {
   return (
-    <div className="column" onClick={props.onClick}>
-      <Square colorClass={getColor(props.squares[5])} />
-      <Square colorClass={getColor(props.squares[4])} />
-      <Square colorClass={getColor(props.squares[3])} />
-      <Square colorClass={getColor(props.squares[2])} />
-      <Square colorClass={getColor(props.squares[1])} />
-      <Square colorClass={getColor(props.squares[0])} />
+    <div className="column" onClick={onClick}>
+      <Square colorClass={getColor(squares[5])} />
+      <Square colorClass={getColor(squares[4])} />
+      <Square colorClass={getColor(squares[3])} />
+      <Square colorClass={getColor(squares[2])} />
+      <Square colorClass={getColor(squares[1])} />
+      <Square colorClass={getColor(squares[0])} />
     </div>
   );
 }
