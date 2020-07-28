@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import checkForWinner from "./check-for-winner";
 import Column from "./components/Column";
+import ColorPicker from "./components/ColorPicker";
 import "./index.css";
 
 class Board extends React.Component {
@@ -112,28 +113,19 @@ class Board extends React.Component {
           </h2>
         ) : null}
 
-        {/* TODO: Extract color pickers as components */}
-        <div>
-          <input
-            type="color"
-            id="player-one-color-picker"
-            name="player-one-color-picker"
-            value={this.state.playerOneColor}
-            onChange={this.changePlayerOneColor}
-          ></input>
-          <label htmlFor="player-one-color-picker">Player One color</label>
-        </div>
+        <ColorPicker
+          name="player-one-color-picker"
+          value={this.state.playerOneColor}
+          onChange={this.changePlayerOneColor}
+          label={"Player One color"}
+        />
 
-        <div>
-          <input
-            type="color"
-            id="player-two-color-picker"
-            name="player-two-color-picker"
-            value={this.state.playerTwoColor}
-            onChange={this.changePlayerTwoColor}
-          ></input>
-          <label htmlFor="player-two-color-picker">Player Two color</label>
-        </div>
+        <ColorPicker
+          name="player-two-color-picker"
+          value={this.state.playerTwoColor}
+          onChange={this.changePlayerTwoColor}
+          label={"Player Two color"}
+        />
       </div>
     );
   }
