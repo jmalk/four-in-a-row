@@ -1,5 +1,7 @@
 import React from "react";
 
+// TODO: PropTypes?
+
 function ColorPicker({ name, value, onChange, label }) {
   return (
     <div>
