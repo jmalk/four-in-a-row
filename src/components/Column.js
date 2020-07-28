@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Square from "./Square";
 
 function getColor(number) {
@@ -11,6 +12,7 @@ function getColor(number) {
   }
 }
 
+// TODO Destructure props.
 function Column(props) {
   return (
     <div className="column" onClick={props.onClick}>
@@ -23,5 +25,10 @@ function Column(props) {
     </div>
   );
 }
+
+Column.propTypes = {
+  onClick: PropTypes.func,
+  squares: PropTypes.array,
+};
 
 export default Column;

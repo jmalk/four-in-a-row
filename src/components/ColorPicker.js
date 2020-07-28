@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 // TODO: PropTypes?
 
@@ -16,5 +17,12 @@ function ColorPicker({ name, value, onChange, label }) {
     </div>
   );
 }
+
+ColorPicker.propTypes = {
+  name: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+  label: PropTypes.string,
+};
 
 export default ColorPicker;
