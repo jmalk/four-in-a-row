@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Square from "./Square";
 
-function getColor(number) {
+function getColorClass(number) {
   if (number === 1) {
     return "player-one";
   } else if (number === -1) {
@@ -15,12 +15,12 @@ function getColor(number) {
 function Column({ onClick, squares }) {
   return (
     <div className="column" onClick={onClick}>
-      <Square colorClass={getColor(squares[5])} />
-      <Square colorClass={getColor(squares[4])} />
-      <Square colorClass={getColor(squares[3])} />
-      <Square colorClass={getColor(squares[2])} />
-      <Square colorClass={getColor(squares[1])} />
-      <Square colorClass={getColor(squares[0])} />
+      <Square colorClass={getColorClass(squares[5])} />
+      <Square colorClass={getColorClass(squares[4])} />
+      <Square colorClass={getColorClass(squares[3])} />
+      <Square colorClass={getColorClass(squares[2])} />
+      <Square colorClass={getColorClass(squares[1])} />
+      <Square colorClass={getColorClass(squares[0])} />
     </div>
   );
 }
