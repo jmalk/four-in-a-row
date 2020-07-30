@@ -78,19 +78,22 @@ class Board extends React.Component {
   render() {
     return (
       <div className="board">
-        {/* TODO: Have winner announcement fade in */}
-        {this.state.winner ? (
-          <div className="winner-announce-background" onClick={this.resetGame}>
-            <h1 className="winner-announce">
-              {this.state.winner === "playerOne"
-                ? "Player one wins!"
-                : this.state.winner === "playerTwo"
-                ? "Player two wins!"
-                : null}
-            </h1>
-            <p>Click anywhere to play again</p>
-          </div>
-        ) : null}
+        <div
+          className={`winner-announce-background${
+            !this.state.winner ? " hidden" : ""
+          }`}
+          onClick={this.resetGame}
+        >
+          <h1 className="winner-announce">
+            {this.state.winner === "playerOne"
+              ? "Player one wins!"
+              : this.state.winner === "playerTwo"
+              ? "Player two wins!"
+              : null}
+          </h1>
+          <p>Click anywhere to play again</p>
+        </div>
+
         {[0, 1, 2, 3, 4, 5, 6].map((i) => {
           return (
             <Column

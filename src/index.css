@@ -49,11 +49,18 @@ body {
 }
 
 .winner-announce-background {
+  visibility: visible;
+  transition: opacity 0.5s ease-out;
   position: absolute;
   width: inherit;
   height: inherit;
   background-color: hsl(120, 0%, 100%, 90%);
   text-align: center;
+}
+
+.winner-announce-background.hidden {
+  visibility: hidden;
+  opacity: 0;
 }
 
 .winner-announce {
