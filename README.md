@@ -1,7 +1,6 @@
 # Four in a Row
 
-![Screenshot of a Four in a Row game](https://user-images.githubusercontent.com/6491332/132953146-c8fb1c4f-750a-46ec-a10d-18bc2ecf7782.png)
-
+<img width="473" alt="Screenshot of a game of Four in a Row" src="https://user-images.githubusercontent.com/6491332/132953205-ffcae963-a62f-4580-85e6-636b72c1fc27.png">
 
 Clone this repo.
 
