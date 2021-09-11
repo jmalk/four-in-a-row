@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 
 function ColorPicker({ name, value, onChange, label }) {
   return (
-    <div>
+    <div className="color-picker">
       <input
         type="color"
+        className="color-picker-input"
         id={name}
         name={name}
         value={value}
